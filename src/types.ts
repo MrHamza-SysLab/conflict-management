@@ -166,7 +166,7 @@ export const SCENES: Record<SceneId, Scene> = {
     dialogue: "Before we finalize, let's look at the quarterly performance data. This chart shows Ali's client retention vs Sara's efficiency gains.",
     layout: 'single',
     type: 'image',
-    mediaUrl: 'https://picsum.photos/seed/chart/800/400',
+    mediaUrl: '/chart.jpg',
     choices: [
       {
         text: "Prioritize Ali's retention (Veteran focus)",

@@ -348,22 +348,57 @@ export const GameContainer: React.FC = () => {
 
         <div className="p-6 md:p-12 pb-8 md:pb-16 flex flex-col items-center justify-end gap-6 w-full h-full relative">
           <motion.div
-            key={currentScene.dialogue}
+            key={currentScene.id}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="w-full max-w-5xl relative mt-auto"
+            className="w-full max-w-5xl flex flex-col items-center gap-6 mt-auto relative"
           >
-            {/* Speaker Label */}
-            {currentScene.character && currentScene.character !== 'narrator' && (
-              <div className="absolute -top-7 md:-top-9 left-6 md:left-12 bg-blue-600 text-white px-6 md:px-8 py-2 rounded-t-2xl font-black text-sm md:text-lg uppercase tracking-widest shadow-lg z-10 border-t border-x border-blue-400/30">
-                {currentScene.character === 'ali' ? 'Ali Khan' : currentScene.character === 'sara' ? 'Sara Ahmed' : 'Mr. Ahmed'}
-              </div>
+            {/* Media Rendering */}
+            {(currentScene.type === 'image' || currentScene.type === 'video' || currentScene.type === 'voice') && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="w-full max-w-3xl mx-auto"
+              >
+                {currentScene.type === 'image' && currentScene.mediaUrl && (
+                  <div className="rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-black/50 backdrop-blur-sm pointer-events-auto">
+                    <img src={currentScene.mediaUrl} alt="Scene Media" className="w-full max-h-[35vh] object-cover" />
+                  </div>
+                )}
+                {currentScene.type === 'video' && currentScene.mediaUrl && (
+                  <div className="rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-black/50 backdrop-blur-sm pointer-events-auto">
+                    <video src={currentScene.mediaUrl} autoPlay loop muted playsInline className="w-full max-h-[35vh] object-cover" />
+                  </div>
+                )}
+                {currentScene.type === 'voice' && currentScene.mediaPrompt && (
+                  <div className="p-6 md:p-8 bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl flex items-center gap-6 pointer-events-auto">
+                    <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center relative shrink-0">
+                      <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20" />
+                      <Volume2 className="w-8 h-8 text-blue-400" />
+                    </div>
+                    <div className="space-y-2">
+                      <div className="text-xs font-black uppercase text-blue-400 tracking-widest">Voicemail Message</div>
+                      <p className="text-white/90 italic font-medium text-lg leading-relaxed">{currentScene.mediaPrompt}</p>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
             )}
 
-            <div className="bg-slate-900/80 backdrop-blur-2xl p-8 md:p-12 md:py-16 rounded-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
-              <p className="text-xl md:text-3xl font-medium leading-relaxed italic text-white drop-shadow-md">
-                "{currentScene.dialogue}"
-              </p>
+            <div className="w-full max-w-5xl relative">
+              {/* Speaker Label */}
+              {currentScene.character && currentScene.character !== 'narrator' && (
+                <div className="absolute -top-7 md:-top-9 left-6 md:left-12 bg-blue-600 text-white px-6 md:px-8 py-2 rounded-t-2xl font-black text-sm md:text-lg uppercase tracking-widest shadow-lg z-10 border-t border-x border-blue-400/30">
+                  {currentScene.character === 'ali' ? 'Ali Khan' : currentScene.character === 'sara' ? 'Sara Ahmed' : 'Mr. Ahmed'}
+                </div>
+              )}
+  
+              <div className="bg-slate-900/80 backdrop-blur-2xl p-8 md:p-12 md:py-16 rounded-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+                <p className="text-xl md:text-3xl font-medium leading-relaxed italic text-white drop-shadow-md">
+                  "{currentScene.dialogue}"
+                </p>
+              </div>
             </div>
           </motion.div>
 
