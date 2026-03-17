@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #4195DA;
+  --color-brand-lavender: #D4CFFA;
+  --color-brand-purple: #7F22FE;
+  --color-gold-light: #FDE68A;
+  --color-gold-dark: #B45309;
+  
+  --background-image-splash-gradient: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+  --background-image-intro-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  --background-image-score-gradient: linear-gradient(to bottom, #064e3b 0%, #065f46 100%);
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-white overflow-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .premium-bg {
+    background-image: var(--background-image-splash-gradient);
+  }
+
+  .intro-bg {
+    background-image: var(--background-image-intro-gradient);
+  }
+
+  .score-bg {
+    background-image: var(--background-image-score-gradient);
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-2xl;
+  }
+
+  .gold-card {
+    @apply bg-gradient-to-br from-amber-400/20 to-amber-600/20 border border-amber-400/30 rounded-3xl backdrop-blur-md;
+  }
+
+  .emerald-card {
+    @apply bg-gradient-to-br from-emerald-400/10 to-emerald-600/10 border border-emerald-400/20 rounded-3xl backdrop-blur-md;
+  }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.4); }
+}
