@@ -206,8 +206,8 @@ export const SCENES: Record<SceneId, Scene> = {
     dialogue: "A security alert! There was a heated argument in the breakroom. Watch the footage to see who started it.",
     layout: 'single',
     type: 'video',
-    mediaUrl: 'https://assets.mixkit.co/videos/preview/mixkit-security-camera-footage-of-a-hallway-in-an-office-42442-large.mp4',
-    mediaPrompt: "A short security camera clip of two office workers, a man and a woman, arguing intensely in a modern office breakroom. The man is gesturing wildly while the woman stands her ground.",
+    mediaUrl: '/mixkit-slowly-approaching-a-clock-on-a-black-background-28897-full-hd.mp4',
+    mediaPrompt: "A short video of a clock on a black background.",
     choices: [
       {
         text: "Issue a formal warning to Ali",
