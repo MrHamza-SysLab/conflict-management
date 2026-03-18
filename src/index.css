@@ -9,7 +9,7 @@
   
   --background-image-splash-gradient: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
   --background-image-intro-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-  --background-image-score-gradient: linear-gradient(to bottom, #064e3b 0%, #065f46 100%);
+  --background-image-score-gradient: linear-gradient(to bottom, #0a3652 0%, #051b29 100%);
 }
 
 @layer base {

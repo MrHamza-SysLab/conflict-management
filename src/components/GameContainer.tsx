@@ -187,17 +187,17 @@ export const GameContainer: React.FC = () => {
     const total = scores.communication + scores.fairness + scores.leadership;
     const isExcellent = total > 12;
     const rating = isExcellent ? 'EXCELLENT' : total > 8 ? 'STABLE' : 'CRITICAL';
-    const accentTheme = isExcellent ? 'from-emerald-400 to-teal-500' : total > 8 ? 'from-amber-400 to-orange-500' : 'from-rose-400 to-red-500';
-    const bgGlow = isExcellent ? 'bg-emerald-500/20' : total > 8 ? 'bg-amber-500/20' : 'bg-rose-500/20';
+    const accentTheme = 'from-[#339ce2] to-[#1e7bbd]';
+    const bgGlow = 'bg-[#339ce2]/20';
 
     const StatCard = ({ title, score, icon, delay }: any) => (
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay, type: "spring" }}
-        className="bg-black/40 backdrop-blur-md border border-white/10 p-5 rounded-3xl flex flex-col items-center hover:bg-black/60 transition-colors group"
+        className="bg-black/40 backdrop-blur-md border border-[#339ce2]/10 p-5 rounded-3xl flex flex-col items-center hover:bg-black/60 transition-colors group"
       >
-        <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform text-white/70 group-hover:text-white border border-white/5">
+        <div className="w-12 h-12 bg-[#339ce2]/10 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform text-[#339ce2] group-hover:text-white border border-[#339ce2]/20">
           {icon}
         </div>
         <div className="text-[10px] uppercase font-black tracking-[0.2em] text-white/40 mb-1">{title}</div>
@@ -219,7 +219,7 @@ export const GameContainer: React.FC = () => {
           {/* Animated Glow Behind Text */}
           <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] blur-[150px] rounded-full pointer-events-none ${bgGlow}`} />
 
-          <div className="bg-slate-900/40 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-[0_40px_100px_rgba(0,0,0,0.8)] w-full relative overflow-hidden outline outline-1 outline-white/5">
+          <div className="bg-slate-900/40 backdrop-blur-3xl border border-[#339ce2]/20 rounded-[2.5rem] p-8 md:p-12 shadow-[0_40px_100px_rgba(0,0,0,0.8)] w-full relative overflow-hidden outline outline-1 outline-[#339ce2]/10">
 
             {/* Corner acccents */}
             <div className={`absolute top-0 left-0 w-24 h-1 bg-gradient-to-r ${accentTheme}`} />
@@ -232,12 +232,12 @@ export const GameContainer: React.FC = () => {
                 initial={{ rotate: -180, scale: 0 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ type: "spring", delay: 0.2 }}
-                className={`w-20 h-20 md:w-24 md:h-24 rounded-[1.5rem] flex items-center justify-center mb-5 bg-gradient-to-br ${accentTheme} shadow-[0_0_50px_rgba(0,0,0,0.4)]`}
+                className={`w-20 h-20 md:w-24 md:h-24 rounded-[1.5rem] flex items-center justify-center mb-5 bg-gradient-to-br ${accentTheme} shadow-[0_0_50px_rgba(51,156,226,0.3)]`}
               >
                 <Trophy className="w-10 h-10 md:w-12 md:h-12 text-white drop-shadow-md" />
               </motion.div>
 
-              <h2 className="text-[10px] md:text-xs font-black uppercase tracking-[0.5em] md:tracking-[0.6em] text-white/50 mb-3">Final Leadership Evaluation</h2>
+              <h2 className="text-[10px] md:text-xs font-black uppercase tracking-[0.5em] md:tracking-[0.6em] text-[#339ce2]/60 mb-3">Final Leadership Evaluation</h2>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -262,9 +262,9 @@ export const GameContainer: React.FC = () => {
             >
               <button
                 onClick={() => window.location.reload()}
-                className="group relative px-8 py-4 md:px-10 md:py-4 bg-white text-slate-950 rounded-2xl font-black text-sm md:text-base transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)] overflow-hidden flex items-center justify-center gap-3"
+                className="group relative px-8 py-4 md:px-10 md:py-4 bg-white text-slate-950 rounded-2xl font-black text-sm md:text-base transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(51,156,226,0.3)] overflow-hidden flex items-center justify-center gap-3"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-200 to-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-200 to-[#339ce2]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <RotateCcw className="w-4 h-4 md:w-5 md:h-5 relative z-10" /> 
                 <span className="relative z-10">RESTART SIMULATION</span>
               </button>
